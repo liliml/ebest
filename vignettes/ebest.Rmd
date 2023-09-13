@@ -1,0 +1,48 @@
+---
+title: "Empirical Bayes Estimators for Population-Specific Association"
+author: "Li Hsu, Lilian Law"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+ebest provides joint and pairwise empirical Bayes (EB) estimators for population-specific association analysis, 
+while leveraging information from other populations, accounting for both the uncertainty of the estimates and 
+heterogeneity across populations. ebest also provides the conventional meta-analysis fixed effect estimator 
+for combining the estimates across populations.
+
+Multiple R packages are called in ebest and if possible should be installed beforehand. These packages are: 
+
+- quadprog
+- tibble
+
+The main function to used for examples and in the ebest package is the function ebest. The required inputs are:
+
+- K: Number of populations
+- betas: Vector of regression coefficient estimates for the K populations, the first one is considered as the population of interest
+- ses: Vector of standard errors of the corresponding regression coefficient estimates for the \emph{K} populations
+
+References for the methods used: 
+
+- Hsu, L., Kooperberg, A., Reiner, A.P. and Kooperberg, C., (2023) An empirical Bayes approach to improving population‐specific genetic association estimation by leveraging cross‐population data. Genetic Epidemiology, 47(1), pp.45-60.
+
+The following is an example of the ebest function contained in the ebest package
+
+```{r}
+library(ebest)
+K=3      # number of populations
+est = c(0.1, 0.2, 0.3)   # parameter estimates of the three populations, with the first population being of the primary interest
+se = c(0.2, 0.2, 0.2)   # standard errors of parameter estimates
+ebest(K=K, betas= est, ses = se)
+```
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```

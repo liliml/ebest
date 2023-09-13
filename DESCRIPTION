@@ -1,0 +1,23 @@
+Package: ebest
+Type: Package
+Title: Empirical Bayes Estimators for Population-Specific Association
+Version: 0.1.0
+Date: 2023-09-02
+Author: Li Hsu, Lilian Law
+Maintainer: Lilian Law <lilianmeilaw@gmail.com>
+Description: ebest provides joint and pairwise empirical Bayes (EB) estimators for population-specific association analysis, 
+    while leveraging information from other populations, accounting for both the uncertainty of the estimates and 
+    heterogeneity across populations. ebest also provides the conventional meta-analysis fixed effect estimator 
+    for combining the estimates across populations.
+Depends: R (>= 4.2.0)
+Imports: quadprog, tibble
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+VignetteBuilder: knitr
+NeedsComilation: no
+Suggests: 
+    knitr,
+    rmarkdown
